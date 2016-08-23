@@ -57,12 +57,15 @@ function showCookiesMsg() {
 			'text-decoration:none !important;' +
 			'cursor:pointer;' +
 		'" onClick="showCookiesPopup()">Más información</a></div>';
+		setTimeout(function() {
+			document.getElementsByClassName('__cookies_msg')[0].style.display = 'none';
+		}, 10000);
 	}
-		
+
 	// Guardamos (o actualizamos) una cookie para recordar que ya se ha mostrado el mensaje
 	var d = new Date();
 	d.setTime(d.getTime() + (30*24*60*60*1000));
-	document.cookie = cookie_name + '=1; expires=' + d.toUTCString();
+	document.cookie = cookie_name + '=1;expires=' + d.toUTCString() + ';path=/';
 }
 
 
